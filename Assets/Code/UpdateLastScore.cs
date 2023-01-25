@@ -12,7 +12,6 @@ public class UpdateLastScore : MonoBehaviour
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
         Score.OnUpdateLastGameScore += UpdateScore;
-        
     }
 
     private void OnDisable()

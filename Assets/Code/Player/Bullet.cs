@@ -5,9 +5,6 @@ using System;
 
 public class Bullet : MonoBehaviour
 {
-    public static event Action OnEnemyKill;
-
-
     [SerializeField]
     private float speed;
     [SerializeField]
@@ -19,16 +16,6 @@ public class Bullet : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;
         StartCoroutine("DestroyBullet");
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.transform.tag == "Enemy")
-        {
-            Destroy(collision.gameObject);
-            OnEnemyKill?.Invoke();
-            Destroy(this.gameObject);
-        }
     }
 
     private IEnumerator DestroyBullet()

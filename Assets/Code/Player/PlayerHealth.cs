@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -11,7 +8,6 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField]
     private int maxHealth;
-
     private int currentHealth;
 
     private void Start()
@@ -19,6 +15,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         OnHealthChange?.Invoke(maxHealth);
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.tag == "Enemy")
@@ -29,6 +26,5 @@ public class PlayerHealth : MonoBehaviour
             if (currentHealth <= 0)
                 OnPlayerDeath?.Invoke();
         }
-
     }
 }

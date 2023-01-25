@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerWeapon : MonoBehaviour
 {
@@ -10,10 +7,6 @@ public class PlayerWeapon : MonoBehaviour
 
     [SerializeField]
     private Transform firePos;
-    void Start()
-    {
-        
-    }
 
     void Update()
     {

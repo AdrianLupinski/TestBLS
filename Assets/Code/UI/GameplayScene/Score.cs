@@ -18,19 +18,19 @@ public class Score : MonoBehaviour
 
     private void OnEnable()
     {
-        Bullet.OnEnemyKill += AddScorePoint;
+        EnemyHealth.OnEnemyKill += AddScorePoint;
         SceneMenager.OnUpdateScore += UpdateScore;
     }
 
     private void OnDisable()
     {
-        Bullet.OnEnemyKill -= AddScorePoint;
+        EnemyHealth.OnEnemyKill -= AddScorePoint;
         SceneMenager.OnUpdateScore -= UpdateScore;
     }
 
-    private void AddScorePoint()
+    private void AddScorePoint(int scoreToAdd)
     {
-        currentScore++;
+        currentScore += scoreToAdd;
         SetScoreText();
     }
 
