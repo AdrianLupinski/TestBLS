@@ -5,18 +5,17 @@ using UnityEngine;
 public class BackGroundScroll : MonoBehaviour
 {
     [SerializeField]
-    private float scrollSpeed = 0.5f;
+    private float scrollSpeed = 0.2f;
 
-    Renderer renderer;
+    private Renderer re;
 
     private void Start()
     {
-        renderer = GetComponent<Renderer>();
+        re = GetComponent<Renderer>();
     }
     void Update()
     {
         Vector2 offset = new Vector2(Time.time * scrollSpeed, transform.position.y);
-        renderer.material.mainTextureOffset= offset;
-        
+        re.material.mainTextureOffset= offset;
     }
 }

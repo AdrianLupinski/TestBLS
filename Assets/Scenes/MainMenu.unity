@@ -134,8 +134,9 @@ GameObject:
   - component: {fileID: 183926798}
   - component: {fileID: 183926800}
   - component: {fileID: 183926799}
+  - component: {fileID: 183926801}
   m_Layer: 5
-  m_Name: LastGameScore
+  m_Name: LastGameScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,7 +182,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Last Game Score:'
+  m_text: 'Last Game Score: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -258,6 +259,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 183926797}
   m_CullTransparentMesh: 1
+--- !u!114 &183926801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183926797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79bb7de3a1455d045a031ac5e2f8744f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &234379702
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,8 +621,9 @@ GameObject:
   - component: {fileID: 1955454503}
   - component: {fileID: 1955454505}
   - component: {fileID: 1955454504}
+  - component: {fileID: 1955454506}
   m_Layer: 5
-  m_Name: BestScore
+  m_Name: BestScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -732,3 +746,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1955454502}
   m_CullTransparentMesh: 1
+--- !u!114 &1955454506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955454502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a64153efb2720db45a618f5bbeaacc34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class SceneMenager : MonoBehaviour
 {
+    public static event Action OnUpdateScore;
     [SerializeField]
     private string levelName;
 
@@ -19,6 +21,9 @@ public class SceneMenager : MonoBehaviour
         TimeMenager.OnTimeUp -= LoadGameScene;
     }
 
-    private void LoadGameScene() => SceneManager.LoadScene(levelName);
-
+    private void LoadGameScene()
+    {
+        OnUpdateScore?.Invoke();
+        SceneManager.LoadScene(levelName);
+    }
 }

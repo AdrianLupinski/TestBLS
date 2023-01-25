@@ -1,10 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using System;
 
 public class Score : MonoBehaviour
 {
+    public static event Action<int> OnUpdateLastGameScore;
+
     private TextMeshProUGUI scoreText;
     private int currentScore;
 
@@ -18,11 +19,13 @@ public class Score : MonoBehaviour
     private void OnEnable()
     {
         Bullet.OnEnemyKill += AddScorePoint;
+        SceneMenager.OnUpdateScore += UpdateScore;
     }
 
     private void OnDisable()
     {
         Bullet.OnEnemyKill -= AddScorePoint;
+        SceneMenager.OnUpdateScore -= UpdateScore;
     }
 
     private void AddScorePoint()
@@ -33,5 +36,13 @@ public class Score : MonoBehaviour
 
     private void SetScoreText() => scoreText.text = "Score: " + currentScore;
 
+    private void UpdateScore()
+    {
+        if (currentScore > PlayerPrefs.GetInt("Score"))
+          PlayerPrefs.SetInt("Score", currentScore);
+
+        OnUpdateLastGameScore?.Invoke(currentScore);
+    }
+     
 
 }
