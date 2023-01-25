@@ -20,10 +20,14 @@ public class PlayerHealth : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(collision.gameObject);
-        currentHealth--;
-        OnHealthChange?.Invoke(currentHealth);
-        if (currentHealth <= 0)
-            SceneManager.LoadScene("MainMenu");
+        if (collision.transform.tag == "Enemy")
+        {
+            Destroy(collision.gameObject);
+            currentHealth--;
+            OnHealthChange?.Invoke(currentHealth);
+            if (currentHealth <= 0)
+                SceneManager.LoadScene("MainMenu");
+        }
+
     }
 }

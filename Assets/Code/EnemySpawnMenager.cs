@@ -13,20 +13,13 @@ public class EnemySpawnMenager : MonoBehaviour
     [SerializeField]
     private GameObject[] enemys;
 
-
     [SerializeField]
     private int wavesCooldown;
-    [SerializeField]
-    private int wavesCount = 10;
 
-    
 
     private void Start()
     {
         StartCoroutine("SpawnEnemys");
-    }
-    void Update()
-    {
     }
 
     private void InstantiateEnemy()
@@ -41,10 +34,11 @@ public class EnemySpawnMenager : MonoBehaviour
 
     IEnumerator SpawnEnemys()
     {
-        for (int i = 0; i < wavesCount; i++)
+        WaitForSeconds waitTime = new WaitForSeconds(wavesCooldown);
+        while (true)
         {
             InstantiateEnemy();
-            yield return new WaitForSeconds(wavesCooldown);
+            yield return waitTime;
         }
     }
 }
