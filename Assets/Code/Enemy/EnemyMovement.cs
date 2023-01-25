@@ -18,9 +18,6 @@ public class EnemyMovement : MonoBehaviour
     {
         StartCoroutine("FollowPath");
     }
-    private void Update()
-    {
-    }
 
     private IEnumerator FollowPath()
     {
@@ -29,8 +26,6 @@ public class EnemyMovement : MonoBehaviour
             transform.position = new Vector3(transform.position.x + moveSpeed, transform.position.y, transform.position.z);
             yield return new WaitForSeconds(Time.deltaTime);
         }
-
         Destroy(this.gameObject);
-
     }
 }

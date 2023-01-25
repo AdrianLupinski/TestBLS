@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     public static event Action<int> OnHealthChange;
+    public static event Action OnPlayerDeath;
 
     [SerializeField]
     private int maxHealth;
@@ -26,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
             currentHealth--;
             OnHealthChange?.Invoke(currentHealth);
             if (currentHealth <= 0)
-                SceneManager.LoadScene("MainMenu");
+                OnPlayerDeath?.Invoke();
         }
 
     }

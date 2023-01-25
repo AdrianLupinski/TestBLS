@@ -10,10 +10,7 @@ public class TimeMenager : MonoBehaviour
 
     [SerializeField]
     private int timeOfLevel;
-
     private int currentTime;
-
-    public object SceneMenager { get; private set; }
 
     private void Awake()
     {
