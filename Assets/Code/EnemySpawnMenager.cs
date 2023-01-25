@@ -16,7 +16,6 @@ public class EnemySpawnMenager : MonoBehaviour
     [SerializeField]
     private int wavesCooldown;
 
-
     private void Start()
     {
         StartCoroutine("SpawnEnemys");
