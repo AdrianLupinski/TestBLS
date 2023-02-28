@@ -14,18 +14,15 @@ public class EnemyMovement : MonoBehaviour
         screenWidth = Screen.width;
         moveSpeed = moveSpeed - 2 * moveSpeed;
     }
-    private void OnEnable()
-    {
-        StartCoroutine("FollowPath");
-    }
 
-    private IEnumerator FollowPath()
+    private void Update()
     {
-        for (int i = 0; i < Screen.width; i++)
+        transform.localPosition = new Vector3(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y, transform.localPosition.z);
+
+        if (transform.position.x < screenWidth)
         {
-            transform.position = new Vector3(transform.position.x + moveSpeed, transform.position.y, transform.position.z);
-            yield return new WaitForSeconds(Time.deltaTime);
+            Destroy(this.gameObject);
         }
-        Destroy(this.gameObject);
+
     }
 }

@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
         float offSetY = (yThrow * Time.deltaTime) * sensitivity;
         float rawYPossition = transform.localPosition.y + offSetY;
         float ClampYPossition = Mathf.Clamp(rawYPossition, -rangey, rangey);
-
         transform.localPosition = new Vector3(transform.position.x, ClampYPossition, transform.localPosition.z);
     }
 }

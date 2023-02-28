@@ -13,11 +13,11 @@ public class PlayerHealthText : MonoBehaviour
     }
     private void OnEnable()
     {
-        PlayerHealth.OnHealthChange += SetPlayerHealthText;
+
     }
     private void OnDisable()
     {
-        PlayerHealth.OnHealthChange -= SetPlayerHealthText;
+
     }
 
     private void SetPlayerHealthText(int currentHealth) => playerHealthText.text = "HP:" + currentHealth;

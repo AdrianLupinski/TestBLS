@@ -12,20 +12,22 @@ public class Score : MonoBehaviour
     private void Awake()
     {
         currentScore = 0;
-        scoreText= GetComponent<TextMeshProUGUI>();
+        scoreText = GetComponent<TextMeshProUGUI>();
         SetScoreText();
     }
 
     private void OnEnable()
     {
-        EnemyHealth.OnEnemyKill += AddScorePoint;
-        SceneMenager.OnUpdateScore += UpdateScore;
+        Enemy.OnEnemyKill += AddScorePoint;
+        Player.OnPlayerDeath += UpdateScore;
+        TimeMenager.OnTimeUp += UpdateScore;     
     }
 
     private void OnDisable()
     {
-        EnemyHealth.OnEnemyKill -= AddScorePoint;
-        SceneMenager.OnUpdateScore -= UpdateScore;
+        Enemy.OnEnemyKill -= AddScorePoint;
+        Player.OnPlayerDeath += UpdateScore;
+        TimeMenager.OnTimeUp += UpdateScore;
     }
 
     private void AddScorePoint(int scoreToAdd)
@@ -39,7 +41,7 @@ public class Score : MonoBehaviour
     private void UpdateScore()
     {
         if (currentScore > PlayerPrefs.GetInt("Score"))
-          PlayerPrefs.SetInt("Score", currentScore);
+          PlayerPrefs.SetInt("Score", currentScore); //This is for test, I should never youse PlayerPrefs for save stats
 
         OnUpdateLastGameScore?.Invoke(currentScore);
     }

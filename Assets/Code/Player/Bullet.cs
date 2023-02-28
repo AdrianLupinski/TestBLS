@@ -18,6 +18,11 @@ public class Bullet : MonoBehaviour
         StartCoroutine("DestroyBullet");
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+    }
+
     private IEnumerator DestroyBullet()
     {
         yield return new WaitForSeconds(timeOfBulletLife);
